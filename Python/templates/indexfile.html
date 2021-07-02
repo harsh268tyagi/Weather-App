@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WEATHER</title>
+  <!--
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styling.css') }}">
+  -->
+  <link rel="stylesheet" type="text/css" href="../static/styles/styling.css">
+</head>
+
+<body>
+    <div className ="input">
+      <form className ="inside" >
+        <label  className="label">Select City:</label>
+        <select id="city" name="city" size="1">
+          <option value="London">London</option>
+          <option value="Ghaziabad">Gzb</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Meerut">Meerut</option>
+          <option value="Hapur">Hapur</option>
+          <option value="Noida">Noida</option>
+          <option value="a">a</option>
+        </select><br><br>
+        <label>Choose No of Days:</label>
+        <select id="days" name="days">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit" className="Submit">
+      </form>
+
+    </div>
+
+  <div class="container">
+    <div class="card">
+      <h1 id="city_name">{{city_name}}</h1>
+      <p id="country">{{country}}</p><br>
+      <p id="Today's Temperature:">{{curr_temp}}</p><br>
+      <p id="Wind Speed">{{wind_speed}}</p>
+      <p id ="curr_weather">{{curr_weather}}</p>
+      <p id ="forecasted">{{fw}}</p>
+      
+    </div>
+  </div>
+
+</body>
+</html>

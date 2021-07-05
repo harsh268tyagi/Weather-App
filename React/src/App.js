@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+// import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import "./App.css";
 import WeatherPage from "./components/weather";
@@ -16,21 +16,8 @@ class WeatherApp extends Component {
     forecasted_day: undefined,
     forecasted_temp: undefined,
     forecasted_weather: undefined,
+    fdata: [],
     error: undefined,
-  };
-
-  render_forecast = () => {
-    return (
-      <>
-        <p>
-          {this.state.forecasted_day ? (
-            <p>NextDay:{this.state.forecasted_day}</p>
-          ) : null}
-        </p>
-        <p>{this.state.forecasted_weather}</p>
-        <p>{this.state.forecasted_temp}</p>
-      </>
-    );
   };
 
   getWeather = async (e) => {
@@ -53,12 +40,26 @@ class WeatherApp extends Component {
     const response = await apicall.json();
     console.log(response);
     try {
+      this.setState({ fdata: [] });
       for (let d = 0; d < days; d++) {
         this.setState({
           forecasted_day: [d + 1],
           forecasted_temp: response.forecast.forecastday[d].day.avgtemp_c,
+
           forecasted_weather:
             response.forecast.forecastday[d].day.condition.text,
+        });
+
+        this.setState({
+          fdata: [
+            ...this.state.fdata,
+            [
+              "NextDay" + this.state.forecasted_day + "   ",
+              "Weather:" + this.state.forecasted_weather,
+              "     ",
+              "Temperature:" + this.state.forecasted_temp,
+            ],
+          ],
         });
       }
       this.setState({
@@ -72,7 +73,6 @@ class WeatherApp extends Component {
       });
     } catch {
       this.setState({
-        error: response.error.message,
         city: undefined,
         country: undefined,
         curr_temp: undefined,
@@ -83,9 +83,20 @@ class WeatherApp extends Component {
         forecasted_day: undefined,
         forecasted_temp: undefined,
         forecasted_weather: undefined,
+        fdata: [],
+        error: response.error.message,
       });
-      console.log("error ");
+      console.log("error");
     }
+  };
+  render_forecast = () => {
+    return (
+      <>
+        {this.state.fdata
+          ? this.state.fdata.map((fodata) => <div>{fodata}</div>)
+          : null}
+      </>
+    );
   };
 
   render() {

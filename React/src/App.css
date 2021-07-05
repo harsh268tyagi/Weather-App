@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background: #f8f8f8;
+  background-image: url("./background.jpg");
+  /* background-image: radial-gradient(#dd89d6, #abcdef); */
+  text-align: center;
+}
+.bold {
+  color: red;
+}
+.bodypage {
+  height: auto;
+  width: auto;
+}
+marquee {
+  color: aqua;
+}
+.submitButton {
+  color: aqua;
+  background-image: radial-gradient(#dd89d6, #8962e4);
+  padding: 15px 32px;
+  margin: 80px;
+  /* margin-left: 80px; */
+  border-radius: 10px;
+  border: none;
+}
+.card {
+  background-image: radial-gradient(#dd89d6, #8962e4);
+  margin: 50px auto;
+  border: 0;
+  border-radius: 20px;
+  width: 30%;
+}
+.card h1 {
+  text-align: center;
+  margin: 4px 0;
+  font-size: 10px;
+  border-radius: 1px;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: blue;
+}
+
+.card p {
+  color: aqua;
+  text-align: center;
+  margin: 4px 0;
+  font-size: 10px;
+  border-radius: 1px;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.select {
+  border: 0;
+  padding: 15px 32px;
+  background-image: radial-gradient(#dd89d6, #8962e4);
+  width: 50% auto;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 60px;
+  border-radius: 10px !important;
+  color: aqua;
+  box-shadow: none !important;
+}
+option {
+  color: blue;
+  background-color: #abcdef;
+}
+.fcast {
+  color: aqua;
+  background-color: #abcdef;
+}
